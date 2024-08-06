@@ -1,0 +1,32 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Home</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1><b>U R AT HOME PEGE</b></h1>-->
+<!--    <button onclick="window.location.href='{% url 'Register' %}'">Signup</button>-->
+
+<!--    &lt;!&ndash; Signin Button &ndash;&gt;-->
+<!--    <button onclick="window.location.href='{% url 'Login' %}'">Signin</button>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Home Page</h1>
+    <a href="{% url 'Register' %}">
+        <button><b>Signup</b></button>
+    </a>
+    <a href="{% url 'Login' %}">
+        <button><b>Signin</b></button>
+    </a>
+</body>
+</html>
