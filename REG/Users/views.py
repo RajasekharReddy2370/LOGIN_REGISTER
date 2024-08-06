@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.contrib import messages
+from django.template import loader
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -15,6 +16,16 @@ class ALLUSERS(APIView):
         d = Details.objects.all().values()
         ser = Detailsserializer(d,many=True)
         return Response(ser.data)
+
+class users(APIView):
+    def get(self, request):
+        d = Details.objects.all().values()
+        template = loader.get_template('all.html')
+        context = {
+            "data" :d,
+        }
+        return HttpResponse(template.render(context,request))
+
 
 class ONEUSER(APIView):
     def get(self,request,id):
@@ -103,12 +114,13 @@ class LOGIN(APIView):
         else :
             # return Response("User login success")
             return redirect('/db/')
-
             messages.success(request,"Login success")
 
 class DASHBOARD(APIView):
     def get(self,request):
         return render(request,'dashboard.html',{"user": request.user.email})
+
+
 
 
 
