@@ -1,16 +1,24 @@
+
+
 <!--<!DOCTYPE html>-->
 <!--<html lang="en">-->
 <!--<head>-->
 <!--    <meta charset="UTF-8">-->
 <!--    <title>Home</title>-->
+<!--        <style>-->
+<!--body {-->
+<!--  background-image: url('/Users/rajasekharreddykasireddy/Desktop/f1.jpg');-->
+<!--}-->
+<!--</style>-->
 <!--</head>-->
 <!--<body>-->
-<!--    <h1><b>U R AT HOME PEGE</b></h1>-->
-<!--    <button onclick="window.location.href='{% url 'Register' %}'">Signup</button>-->
-
-<!--    &lt;!&ndash; Signin Button &ndash;&gt;-->
-<!--    <button onclick="window.location.href='{% url 'Login' %}'">Signin</button>-->
-
+<!--    <h1>Welcome to the Home Page</h1>-->
+<!--    <a href="{% url 'Register' %}">-->
+<!--        <button><b>REGISTER</b></button>-->
+<!--    </a>-->
+<!--    <a href="{% url 'Login' %}">-->
+<!--        <button><b>LOGIN</b></button>-->
+<!--    </a>-->
 <!--</body>-->
 <!--</html>-->
 
@@ -19,14 +27,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+<style>
+    body {
+        background-image: url('static/images/f1.jpg');
+        background-size: cover; /* Cover the entire screen */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent repeating */
+        margin: 0; /* Remove default margin */
+        padding: 0; /* Remove default padding */
+        height: 100vh; /* Make the body full screen height */
+        width: 100vw; /* Make the body full screen width */
+    }
+    button {
+        font-weight: bold;
+    }
+</style>
 </head>
 <body>
     <h1>Welcome to the Home Page</h1>
     <a href="{% url 'Register' %}">
-        <button><b>REGISTER</b></button>
+        <button>REGISTER</button>
     </a>
     <a href="{% url 'Login' %}">
-        <button><b>LOGIN</b></button>
+        <button>LOGIN</button>
     </a>
 </body>
 </html>

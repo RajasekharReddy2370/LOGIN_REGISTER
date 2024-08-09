@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.template import loader
 from rest_framework.views import APIView
 from rest_framework.response import Response
+print("raja")
 
 from .models import Details
 from .serializer import Detailsserializer

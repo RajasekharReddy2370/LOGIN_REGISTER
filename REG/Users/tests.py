@@ -10,7 +10,8 @@ from selenium.webdriver.common.by import By
 class TestLandingChrome(unittest.TestCase):
     def setUp(self):
         # Specify the path to your ChromeDriver if it's not in your PATH
-        service = Service(executable_path='/usr/bin/chromedriver')  # Update this path if needed
+        # service = Service(executable_path='/usr/bin/chromedriver')  #This path is for ubuntu
+        service = Service(executable_path='/opt/homebrew/bin/chromedriver')  # This path is for mac
         chrome_options = Options()
         # Optional: add any Chrome options you need here
         # chrome_options.add_argument('--headless')  # Run in headless mode if you don't need a GUI
@@ -18,7 +19,7 @@ class TestLandingChrome(unittest.TestCase):
         self.driver.maximize_window()
         self.driver.get("http://127.0.0.1:8000")
 
-    def test_signup_button(self):
+    def test_register_button(self):
         self.driver.find_element(By.XPATH, '//a[@href="/reg/"]').click()
         time.sleep(3)
 
@@ -64,7 +65,9 @@ password = generate_random_password()
 class TestSignupChrome(unittest.TestCase):
     def setUp(self):
         # Specify the path to your ChromeDriver if it's not in your PATH
-        service = Service(executable_path='/usr/bin/chromedriver')  # Update this path if needed
+        # service = Service(executable_path='/usr/bin/chromedriver')  # This path is for ubuntu
+        service = Service(executable_path='/opt/homebrew/bin/chromedriver')  # This path is for mac
+
         chrome_options = Options()
         # Optional: add any Chrome options you need here
         # chrome_options.add_argument('--headless')  # Run in headless mode if you don't need a GUI
@@ -115,7 +118,9 @@ class TestLoginChrome(unittest.TestCase):
 
     def setUp(self):
         # Specify the path to your ChromeDriver if it's not in your PATH
-        service = Service(executable_path='/usr/bin/chromedriver')  # Update this path if needed
+        service = Service(executable_path='/usr/bin/chromedriver')  # This path is for ubuntu
+        service = Service(executable_path='/opt/homebrew/bin/chromedriver')  # This path is for mac
+
         chrome_options = Options()
         # chrome_options.add_argument("--headless")
         # Optional: add any Chrome options you need here
