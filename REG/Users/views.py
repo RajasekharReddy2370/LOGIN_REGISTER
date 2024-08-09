@@ -69,10 +69,12 @@ class REGISTER(APIView):
         if not (name and email and number and password):
             messages.error(request,"ALL THE FIELDS ARE MANDATORY")
             # return Response("All the fields are mandatory")
+            return redirect('/reg/')
 
         if Details.objects.filter(email = email).exists():
             # return Response("Email address already exists")
-            messages.error(request,"Email address already exists")
+            messages.error(request,"Email address already exists try another email or go to login ")
+            return redirect('/reg/')
 
         user = Details.objects.create(
             name = name,
@@ -84,10 +86,9 @@ class REGISTER(APIView):
         user.set_password(password)
         user.save()
         # return user
-        return redirect('/log/')
-
-        # return Response("user created successfully")
+        # return HttpResponse("User created successfully")
         messages.success(request,"USER CREATED SUCCESSFULLY")
+        return redirect('/log/')
 
 class LOGIN(APIView):
     def get(self,request):
@@ -98,14 +99,15 @@ class LOGIN(APIView):
         if not (email and password):
             # return Response("All the fields are mandatory")
             messages.error(request,"ALL THE FIELDS ARE MANDATORY")
+            return redirect('/log/')
 
 
         user = Details.objects.filter(email = email).first()
 
         if user is None:
             # return Response("Email address does not exists or incorrect email address")
-            messages.error("Email address does not exists")
-            return redirect('/reg/')
+            messages.error(request,"Email address does not exists try to enter valid email or click register")
+            return redirect('/log/')
 
         if not user.check_password(password):
             # return Response("Invalid password")
@@ -113,12 +115,12 @@ class LOGIN(APIView):
             return redirect('/log/')
         else :
             # return Response("User login success")
-            return redirect('/db/')
             messages.success(request,"Login success")
+            return redirect('/db/')
 
 class DASHBOARD(APIView):
     def get(self,request):
-        return render(request,'dashboard.html',{"user": request.user.email})
+        return render(request,'dashboard.html',{})
 
 
 

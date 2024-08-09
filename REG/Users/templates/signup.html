@@ -23,9 +23,19 @@
             <label><b>PASSWORD</b></label>
             <input name = "password" type="password" placeholder="Enter your Passsword" required/>
         </div>
-        <button type="submit">SIGNUP</button>
+        <button type="submit">REGISTER</button>
 
     </form>
+    <a href="{% url 'Login' %}">
+        <button><b>LOGIN NOW</b></button>
+    </a>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 </body>
 </html>
