@@ -1,11 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>dashboard</title>
-</head>
-<body>
-    <h1>u r AT -brd</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block title_block %}
+    Dashboard
+{% endblock %}
+{% block style_block %}
+        <style>
+body {
+background-image: url({% static '/images/dashboard.jpeg' %});
+background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    height: 100vh; /* Make the body full screen height */
+    margin: 0; /* Remove any margin */
+}
+    </style>
+{% endblock %}
+{% block content_block %}
+<b>You are at Dashboard</b>
+{% endblock %}
 
-</body>
-</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>dashboard</title>-->
+<!--        <style>-->
+<!--body {-->
+<!--background-image: url('/static/images/dashboard.jpg')-->
+<!--}-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>u r AT -brd</h1>-->
+
+<!--</body>-->
+<!--</html>-->

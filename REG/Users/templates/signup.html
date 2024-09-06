@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>REGISTER</title>
-    <style>-->
+{% extends 'base.html' %}
+{% load static %}
+{% block title_block %}
+    Register
+{% endblock %}
+{% block style_block %}
+        <style>
 body {
-background-image: url('/static/images/coffee.jpg')
+background-image: url({% static '/images/a.jpg' %});
+background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    height: 100vh; /* Make the body full screen height */
+    margin: 0; /* Remove any margin */
 }
     </style>
-
-</head>
-<body>
-
-    <form method="POST" action = "{% url 'Register' %}">
+{% endblock %}
+{% block header_block %}
+REGISTER
+{% endblock %}
+{% block content_block %}
+ <form method="POST" action = "{% url 'Register' %}">
         {% csrf_token %}
         <div>
             <label><b>NAME</b></label>
@@ -30,11 +37,14 @@ background-image: url('/static/images/coffee.jpg')
             <label><b>PASSWORD</b></label>
             <input name = "password" type="password" placeholder="Enter your Passsword" required/>
         </div>
-        <button type="submit">REGISTER</button>
+        <button type="submit"><b>REGISTER</b></button>
 
     </form>
     <a href="{% url 'Login' %}">
         <button><b>LOGIN NOW</b></button>
+    </a>
+   <a href="{% url 'homepage' %}">
+        <button><b>HOME</b></button>
     </a>
     {% if messages %}
         <ul>
@@ -43,6 +53,57 @@ background-image: url('/static/images/coffee.jpg')
             {% endfor %}
         </ul>
     {% endif %}
+{% endblock %}
 
-</body>
-</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>REGISTER</title>-->
+    <style>-->
+body {
+background-image: url('/static/images/trac.jpg')
+}
+<!--    </style>-->
+<!---->
+<!--</head>-->
+<!--<body>-->
+
+<!--    <form method="POST" action = "{% url 'Register' %}">-->
+<!--        {% csrf_token %}-->
+<!--        <div>-->
+<!--            <label><b>NAME</b></label>-->
+<!--            <input name = "name" type="text" placeholder="Enter your name" required/>-->
+<!--        </div>-->
+<!--         <div>-->
+<!--            <label><b>NUMBER</b></label>-->
+<!--            <input name = "number" type="number" placeholder="Enter your Number" required/>-->
+<!--        </div>-->
+<!--         <div>-->
+<!--            <label><b>EMAIL</b></label>-->
+<!--            <input name = "email" type="email" placeholder="Enter your Email" required/>-->
+<!--        </div>-->
+<!--         <div>-->
+<!--            <label><b>PASSWORD</b></label>-->
+<!--            <input name = "password" type="password" placeholder="Enter your Passsword" required/>-->
+<!--        </div>-->
+<!--        <button type="submit">REGISTER</button>-->
+
+<!--    </form>-->
+<!--    <a href="{% url 'Login' %}">-->
+<!--        <button><b>LOGIN NOW</b></button>-->
+<!--    </a>-->
+<!--    {% if messages %}-->
+<!--        <ul>-->
+<!--            {% for message in messages %}-->
+<!--                <li>{{ message }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--    {% endif %}-->
+
+<!--</body>-->
+<!--</html>-->
+

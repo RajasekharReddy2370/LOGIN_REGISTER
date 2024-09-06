@@ -1,3 +1,46 @@
+{% extends 'base.html'   %}
+{% load static %}
+{% block title_block %}
+Homepage
+{% endblock %}
+{% block style_block %}
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        #background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        button {
+            font-weight: bold;
+        }
+    </style>
+{% endblock %}
+{% block content_block %}
+<video id="background-video" loop muted autoplay>
+        <source src="{% static '/vedios/welcome.mp4' %}" type="video/mp4">
+    </video>
+    <audio id="background-audio" loop autoplay>
+        <source src="{% static '/audios/startingmusic.mp3' %}" type="audio/mp3">
+    </audio>
+    <h1>Welcome to the Home Page</h1>
+    <a href="{% url 'Register' %}">
+        <button>REGISTER</button>
+    </a>
+    <a href="{% url 'Login' %}">
+        <button>LOGIN</button>
+    </a>
+{% endblock %}
+
 
 
 <!--<!DOCTYPE html>-->
@@ -21,45 +64,47 @@
 <!--</body>-->
 <!--</html>-->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            width: 100vw;
-        }
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            z-index: -1;
-        }
-        button {
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <video id="background-video" loop muted autoplay>
-        <source src="static/vedios/welcome.mp4" type="video/mp4">
-    </video>
-    <audio id="background-audio" loop autoplay>
-        <source src="static/audios/startingmusic.mp3" type="audio/mp3">
-    </audio>
-    <h1>Welcome to the Home Page</h1>
-    <a href="{% url 'Register' %}">
-        <button>REGISTER</button>
-    </a>
-    <a href="{% url 'Login' %}">
-        <button>LOGIN</button>
-    </a>
-</body>
-</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Home</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            height: 100vh;-->
+<!--            width: 100vw;-->
+<!--        }-->
+<!--        #background-video {-->
+<!--            position: fixed;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--            width: 100%;-->
+<!--            height: 100vh;-->
+<!--            object-fit: cover;-->
+<!--            z-index: -1;-->
+<!--        }-->
+<!--        button {-->
+<!--            font-weight: bold;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <video id="background-video" loop muted autoplay>-->
+<!--        <source src="static/vedios/welcome.mp4" type="video/mp4">-->
+<!--    </video>-->
+<!--    <audio id="background-audio" loop autoplay>-->
+<!--        <source src="static/audios/startingmusic.mp3" type="audio/mp3">-->
+<!--    </audio>-->
+<!--    <h1>Welcome to the Home Page</h1>-->
+<!--    <a href="{% url 'Register' %}">-->
+<!--        <button>REGISTER</button>-->
+<!--    </a>-->
+<!--    <a href="{% url 'Login' %}">-->
+<!--        <button>LOGIN</button>-->
+<!--    </a>-->
+<!--</body>-->
+<!--</html>-->
+
+

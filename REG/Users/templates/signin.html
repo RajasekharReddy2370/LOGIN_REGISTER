@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>LOGIN</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title_block %}
+    LOGIN
+{% endblock %}
+{% block style_block %}
+        <style>
+body {
+background-image: url({% static '/images/coffee.jpg' %});
+background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    height: 100vh; /* Make the body full screen height */
+    margin: 0; /* Remove any margin */
+}
+    </style>
+{% endblock %}
+{% block header_block %}
+LOGIN
+{% endblock %}
+{% block content_block %}
     <form method="POST" action = "{% url 'Login' %}">
         {% csrf_token %}
          <div>
@@ -15,10 +29,14 @@
             <label><b>PASSWORD</b></label>
             <input name = "password" type="password" placeholder="Enter your Passsword" required/>
         </div>
-        <button type="submit">LOGIN</button>
+        <button type="submit"><b>LOGIN</b></button>
     </form>
     <a href="{% url 'Register' %}">
         <button><b>REGISTER NOW</b></button>
+    </a>
+    <a href="{% url 'homepage' %}">
+        <button><b>HOME</b></button>
+    </a>
     {% if messages %}
         <ul>
             {% for message in messages %}
@@ -26,6 +44,40 @@
             {% endfor %}
         </ul>
     {% endif %}
+{% endblock %}
 
-</body>
-</html>
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>LOGIN</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <form method="POST" action = "{% url 'Login' %}">-->
+<!--        {% csrf_token %}-->
+<!--         <div>-->
+<!--            <label><b>EMAIL</b></label>-->
+<!--            <input name = "email" type="email" placeholder="Enter your Email" required/>-->
+<!--        </div>-->
+<!--         <div>-->
+<!--            <label><b>PASSWORD</b></label>-->
+<!--            <input name = "password" type="password" placeholder="Enter your Passsword" required/>-->
+<!--        </div>-->
+<!--        <button type="submit">LOGIN</button>-->
+<!--    </form>-->
+<!--    <a href="{% url 'Register' %}">-->
+<!--        <button><b>REGISTER NOW</b></button>-->
+<!--    {% if messages %}-->
+<!--        <ul>-->
+<!--            {% for message in messages %}-->
+<!--                <li>{{ message }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--    {% endif %}-->
+
+<!--</body>-->
+<!--</html>-->

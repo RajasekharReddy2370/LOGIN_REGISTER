@@ -39,4 +39,7 @@ class Details(AbstractBaseUser,PermissionsMixin):
 
     objects = customusermanager()
 
+class Amount(models.model):
+    Quantity = models.IntegerField(default=0)
+
 
