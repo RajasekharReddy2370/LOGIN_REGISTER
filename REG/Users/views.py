@@ -10,7 +10,8 @@ from .models import Details
 from .serializer import Detailsserializer
 def Home(request):
     # return HttpResponse("You are at project index")
-    return render(request,'Home.html',{})
+    # return render(request,'Home.html',{})
+    return render(request,'Homeprac.html',{})
 
 class ALLUSERS(APIView):
     def get(self,request):
@@ -121,7 +122,22 @@ class LOGIN(APIView):
 
 class DASHBOARD(APIView):
     def get(self,request):
-        return render(request,'dashboard.html',{})
+        username = request.session.get('username', 'Guest')  # Default to 'Guest' if not logged in
+
+        return render(request,'dashboard.html',{'username':username})
+
+    def post(self,request):
+        quantity = request.data['quantity']
+
+        if not quantity:
+            messages.error(request,"Quantity is required")
+            return redirect('/db/')
+
+        else :
+            messages.success(request,"Accept success")
+
+
+
 
 
 

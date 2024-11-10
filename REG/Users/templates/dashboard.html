@@ -15,11 +15,30 @@ background-size: cover; /* Cover the entire page */
 }
     </style>
 {% endblock %}
+
+{% block header_block %}
+<h1> <b> Welcome, {{ username }} </b> </h1>
+{% endblock %}
+
 {% block content_block %}
-<b>You are at Dashboard</b>
+
+<div>
+    <label><b>Quantity</b></label>
+    <input name = "quantity" type="number" placeholder="Enter The Quantity you need" required/>
+</div>
+
+<button type="submit"><b>SUBMIT</b></button>
+
 <a href="{% url 'homepage' %}">
         <button><b>HOME</b></button>
     </a>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock %}
 
 

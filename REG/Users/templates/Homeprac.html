@@ -16,24 +16,6 @@ background-size: cover; /* Cover the entire page */
     height: 100vh; /* Make the body full screen height */
     margin: 0; /* Remove any margin */
 }
-<!--        body {-->
-<!--            margin: 0;-->
-<!--            padding: 0;-->
-<!--            height: 100vh;-->
-<!--            width: 100vw;-->
-<!--        }-->
-<!--        #background-video {-->
-<!--            position: fixed;-->
-<!--            top: 0;-->
-<!--            left: 0;-->
-<!--            width: 100%;-->
-<!--            height: 100vh;-->
-<!--            object-fit: cover;-->
-<!--            z-index: -1;-->
-<!--        }-->
-<!--        button {-->
-<!--            font-weight: bold;-->
-<!--        }-->
 
     .button-container {
     display: flex;
@@ -50,7 +32,7 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50; /* Button color */
+    background-color: black; /* Button color */
     color: white;
 }
 
@@ -74,14 +56,15 @@ button:hover {
         <source src="{% static '/audios/startingmusic.mp3' %}" type="audio/mp3">
 </audio>
 
-
-<a href="{% url 'Register' %}">
-        <button id = regId>REGISTER</button>
+<div class="button-container">
+    <a href="{% url 'Register' %}">
+        <button>REGISTER</button>
     </a>
-
-<a href="{% url 'Login' %}">
+    <a href="{% url 'Login' %}">
         <button>LOGIN</button>
     </a>
+</div>
+
 {% endblock %}
 
 
